@@ -1,0 +1,29 @@
+.container {
+    border: solid rgb(175, 175, 175) 1px;
+    border-radius: 2.5px;
+
+    padding: 0.75rem;
+}
+
+.title {
+    font-size: 13px;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+
+    margin: 0.5rem 0 0 0;
+}
+
+.episode {
+    font-size: 12px;
+
+    flex: 1;
+}
+
+.price {
+    color: darkorange;
+    font-size: 12px;
+    font-weight: 500;
+}
