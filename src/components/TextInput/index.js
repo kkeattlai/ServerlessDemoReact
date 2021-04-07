@@ -19,6 +19,7 @@ const TextInput = (props) => {
             style={{ borderColor: (focus) ? "rgb(100, 100, 100)" : "rgb(200, 200, 200)" }}
         >
             <input
+                { ...props.register("search") }
                 className={ styles.input }
                 onBlur={ handleBlur }
                 onFocus={ handleFocus }

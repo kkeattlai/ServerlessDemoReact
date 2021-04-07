@@ -15,9 +15,11 @@ const Home = () => {
     const { register, watch } = useForm();
     const [ products, setProducts ] = useState([]);
     const [ episodes, setEpisodes ] = useState([]);
+    const search = watch("search", "");
     const episode = watch("episodes", "");
     const filter = watch("filter", "");
 
+    console.log(search);
     useEffect(() => {
         axios.get("https://h3wapzopz2.execute-api.ap-southeast-2.amazonaws.com/v1/api/cinemaworld/movies").then(result => {
             setProducts(result.data.data);
@@ -28,14 +30,14 @@ const Home = () => {
     }, []);
 
     useEffect(() => {
-        axios.get(`https://h3wapzopz2.execute-api.ap-southeast-2.amazonaws.com/v1/api/cinemaworld/movies?&${(filter) ? `sort_by=price&order=${filter}` : ``}&${(episode) ? `episode=${episode}` : ``}`).then(result => {
+        axios.get(`https://h3wapzopz2.execute-api.ap-southeast-2.amazonaws.com/v1/api/cinemaworld/movies?&${(search) ? `search=${search}` : ``}&${(filter) ? `sort_by=price&order=${filter}` : ``}&${(episode) ? `episode=${episode}` : ``}`).then(result => {
             setProducts(result.data.data);
         });
-    }, [ filter, episode ]);
+    }, [ search, filter, episode ]);
 
     return (
         <React.Fragment>
-            <Header />
+            <Header register={ register } />
             <Container>
                 <div className={ styles.left }>
                     <div className={ styles.left_header }>

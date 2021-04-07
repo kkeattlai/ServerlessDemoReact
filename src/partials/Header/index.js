@@ -4,7 +4,7 @@ import TextInput from "../../components/TextInput";
 
 import styles from "./Header.module.css";
 
-const Header = () => {
+const Header = (props) => {
     return (
         <div className={ styles.container }>
             <div className={ styles.wrapper }>
@@ -13,6 +13,7 @@ const Header = () => {
                 </div>
                 <div className={ styles.search_input }>
                     <TextInput
+                        register={ props.register }
                         placeholder="Search here"
                     />
                 </div>
